@@ -16,6 +16,9 @@ text!: string;
 @Column({name:"Valoration"})
 valoration!: number;
 
+@Column({name:"created_at"})
+createdAt!: Date;
+
 
 //////  RELATIONSHIPS   //////
 
