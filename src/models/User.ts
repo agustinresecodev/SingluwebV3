@@ -1,6 +1,7 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn, ManyToMany, OneToOne } from "typeorm"
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn, ManyToMany, OneToOne, OneToMany } from "typeorm"
 import {Role} from "./Role"
 import {Comment} from "./Comment"
+import {CommentResponse} from "./CommentResponse"
 
 
 
@@ -10,10 +11,10 @@ export class User extends BaseEntity {
     id!:number;
 
     @Column({name:"name"})
-    firstName!: string;
+    name!: string;
 
     @Column({name:"surname"})
-    lastName!:string;
+    surname!:string;
 
     @Column({name:"email"})
     email!:string;
@@ -21,19 +22,21 @@ export class User extends BaseEntity {
     @Column({name:"password", select:false})
     password!:string;
 
-    @Column({name:"is_active"})
-    isActive!:boolean;
-
 
     //RELATIONSHIPS
 
     // Many to one with role
-    @ManyToOne(type => Role, role => role.users)
+    //Relacion N:1 con Roles
+    @ManyToOne(()=>Role,(role)=>role.user)
     @JoinColumn({name:"role_id"})
     role!:Role;
 
     // Many to many with comments
     @ManyToMany(()=> Comment, comment => comment.user)
     comments!: Comment[];
+
+    // One to Many with responses
+    @OneToMany(()=> CommentResponse, commentResponse => commentResponse.user )
+    commentResponses!: Response[];
 
 }

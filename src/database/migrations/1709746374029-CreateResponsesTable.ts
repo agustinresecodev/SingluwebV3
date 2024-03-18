@@ -5,7 +5,7 @@ export class CreateResponsesTable1709746374029 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-               name: "responses",
+               name: "commentresponses",
                columns: [
                   {
                      name: "id",
@@ -22,6 +22,11 @@ export class CreateResponsesTable1709746374029 implements MigrationInterface {
                   {
                     name: "valoration",
                     type: "int"
+                  },
+                  {
+                     name: "created_at",
+                     type: "timestamp",
+                     default: "now()",
                   },
                   {
                     name: "user_id",

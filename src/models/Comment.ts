@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, BaseEntity,Column, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, BaseEntity,Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { User } from "./User";
 import { Business } from "./Business";
+import { CommentResponse } from "./CommentResponse";
 
 @Entity('comments')
 export class Comment  extends BaseEntity{
@@ -28,6 +29,8 @@ user!: User;
 @JoinColumn({name:"business_id"})
 business!: Business;
 
+@OneToMany(()=> CommentResponse, commentResponse => commentResponse.comment)
+commentResponses!: CommentResponse[];
 
 
 }

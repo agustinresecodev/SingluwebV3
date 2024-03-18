@@ -1,5 +1,6 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Comment } from "./Comment";
+
 @Entity('business')
 export class Business extends BaseEntity{
 
@@ -46,10 +47,10 @@ export class Business extends BaseEntity{
     twitterProfile!: string;
 
     @Column({name:"lng"})
-    lng!: string;
+    lng!: number;
 
     @Column({name:"lat"})
-    lat!: string;
+    lat!: number;
 
     @Column({name:"created_at"})
     createdAt!: Date;
