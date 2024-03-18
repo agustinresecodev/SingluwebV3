@@ -28,6 +28,11 @@ export class CreateCommentsTable1709746133244 implements MigrationInterface {
                     type: "int",
                   },
                   {
+                      name: "created_at",
+                      type: "timestamp",
+                      default: "now()",
+                  },
+                  {
                     name: "business_id",
                     type: "int",
                   }

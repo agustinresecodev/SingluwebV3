@@ -7,6 +7,8 @@ export class CommentFactory extends Factory<Comment>{
         return{
             text: faker.lorem.paragraph(),
             valoration: Math.floor(Math.random() * 100) + 1,
+            createdAt: faker.date.recent(),
+
         } as Comment;
     }
 }

@@ -1,7 +1,7 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Comment } from "./Comment";
 
-@Entity('business')
+@Entity('businesses')
 export class Business extends BaseEntity{
 
     @PrimaryGeneratedColumn()
@@ -20,10 +20,10 @@ export class Business extends BaseEntity{
     state!: string;
 
     @Column({name:"zip"})
-    zip!: string;
+    zip!: number;
 
     @Column({name:"phone"})
-    phone!: string;
+    phone!: number;
 
     @Column({name:"email"})
     email!: string;
