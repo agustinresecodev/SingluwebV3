@@ -1,6 +1,7 @@
-import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn, ManyToMany, OneToOne } from "typeorm"
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn, ManyToMany, OneToOne, OneToMany } from "typeorm"
 import {Role} from "./Role"
 import {Comment} from "./Comment"
+import {CommentResponse} from "./CommentResponse"
 
 
 
@@ -10,10 +11,10 @@ export class User extends BaseEntity {
     id!:number;
 
     @Column({name:"name"})
-    firstName!: string;
+    name!: string;
 
     @Column({name:"surname"})
-    lastName!:string;
+    surname!:string;
 
     @Column({name:"email"})
     email!:string;
@@ -35,5 +36,9 @@ export class User extends BaseEntity {
     // Many to many with comments
     @ManyToMany(()=> Comment, comment => comment.user)
     comments!: Comment[];
+
+    // One to Many with responses
+    @OneToMany(()=> CommentResponse, commentResponse => commentResponse.user )
+    commentResponses!: Response[];
 
 }

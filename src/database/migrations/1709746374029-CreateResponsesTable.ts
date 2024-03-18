@@ -24,6 +24,11 @@ export class CreateResponsesTable1709746374029 implements MigrationInterface {
                     type: "int"
                   },
                   {
+                     name: "created_at",
+                     type: "timestamp",
+                     default: "now()",
+                  },
+                  {
                     name: "user_id",
                     type: "int",
                   },
