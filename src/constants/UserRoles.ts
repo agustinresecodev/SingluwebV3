@@ -6,15 +6,15 @@ export const UserRoles = {
         name: "ADMIN",
         description: "Administrator",
 
-    },
+    } as Role,
     USER: {
         id: 2,
         name: "USER",
         description: "User",
-    },
+    } as Role,
     BUSINESS: {
         id: 3,
         name: "BUSINESS",
         description: "Business",
-    }
+    } as Role
 }

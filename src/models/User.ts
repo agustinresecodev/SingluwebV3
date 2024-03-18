@@ -22,14 +22,12 @@ export class User extends BaseEntity {
     @Column({name:"password", select:false})
     password!:string;
 
-    @Column({name:"is_active"})
-    isActive!:boolean;
-
 
     //RELATIONSHIPS
 
     // Many to one with role
-    @ManyToOne(type => Role, role => role.users)
+    //Relacion N:1 con Roles
+    @ManyToOne(()=>Role,(role)=>role.user)
     @JoinColumn({name:"role_id"})
     role!:Role;
 
